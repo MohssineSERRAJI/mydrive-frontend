@@ -35,7 +35,7 @@ export const startLogin = (email, password, router) => {
         if (emailVerified) {
           dispatch(setLoginFailed(false));
           dispatch(login(id));
-          router("/home");
+          window.location.href="/home"
         } else {
           console.log("Email Not Verified");
           dispatch(setLoginFailed("Unverified Email", 404));
@@ -44,8 +44,7 @@ export const startLogin = (email, password, router) => {
       .catch((err) => {
         console.log(err);
         console.log("USER SERVICE LOGIN ERROR");
-        const code = err.response.status;
-        dispatch(setLoginFailed("Incorrect Email or Password", code));
+        dispatch(setLoginFailed("Incorrect Email or Password", 404));
         console.log(err);
       });
   };

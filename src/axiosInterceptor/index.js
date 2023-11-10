@@ -1,5 +1,9 @@
 import axios from "axios";
 import { v4 } from "uuid";
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+
 
 let browserIDCheck = localStorage.getItem("browser-id");
 
@@ -50,11 +54,16 @@ axiosRetry.interceptors.response.use(
   async (error) => {
 
       let originalRequest = error.config;
-    if (error.response.status === 501){
+      let retryCount = originalRequest.retry || false;
+      console.log()
+    if (error.response.status === 501 && !retryCount){
+      originalRequest.retry = true
       await refreshAccessToken()
-      console.log(445445454)
       return axiosRetry(originalRequest)
     }
+    history.push("/")
+    return Promise.reject(error);
+
   }
 );
 

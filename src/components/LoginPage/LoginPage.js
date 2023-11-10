@@ -19,7 +19,7 @@ const LoginPage = (props) => {
         </div>
       ) : (
         <div className="sign__back">
-          {props.loginFailed && props.loginFailedCode != 404 ? (
+          {!props.loginFailed && props.loginFailedCode != 404 ? (
             <div class="sign__block">
               <div class="sign__inner">
                 <div class="confirm__email">
@@ -84,7 +84,7 @@ const LoginPage = (props) => {
                 <div
                   class="login__form"
                   style={
-                    props.loginFailed && props.loginFailedCode != 404
+                    !props.loginFailed && props.loginFailedCode != 404
                       ? { display: "none" }
                       : { display: "block" }
                   }
