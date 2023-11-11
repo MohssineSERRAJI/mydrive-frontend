@@ -11,7 +11,7 @@ const FileItem = (props) => {
       <tr
         className={"moving__file"}
         onClick={() => {
-          props.fileClick(props._id, props);
+          props.fileClick(props.pk, props);
         }}
         onContextMenu={(e) => props.getContextMenu(e)}
         onTouchStart={props.onTouchStart}
@@ -53,7 +53,7 @@ const FileItem = (props) => {
         className={
           props.state.editNameMode
             ? "editable__row"
-            : props._id !== props.selected
+            : props.pk !== props.selected
             ? ""
             : "active__recent"
         }
@@ -145,7 +145,7 @@ const FileItem = (props) => {
     return (
       <div
         className={
-          props._id !== props.selected
+          props.pk !== props.selected
             ? "elem__access noSelect"
             : "elem__access active__recent noSelect"
         }
@@ -185,13 +185,13 @@ const FileItem = (props) => {
         <div class="access__info--file">
           <p
             className="noSelect"
-            style={props._id !== props.selected ? {} : { color: "white" }}
+            style={props.pk !== props.selected ? {} : { color: "white" }}
           >
             {capitalize(props.fields.filename)}
           </p>
           <span
             className="noSelect"
-            style={props._id !== props.selected ? {} : { color: "white" }}
+            style={props.pk !== props.selected ? {} : { color: "white" }}
           >
             {moment(props.uploadDate).format("L")}
           </span>

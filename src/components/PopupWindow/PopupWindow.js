@@ -38,7 +38,7 @@ class PopupWindow extends React.Component {
                 <h3 className="popup-window__subtitle">No Preview Available</h3>
               ) : undefined}
 
-              {!this.props.popupFile.is_image ? (
+              {!this.props.popupFile.fields.is_image ? (
                 <img
                   className={this.props.state.imageClassname}
                   src={this.props.state.image}
@@ -53,7 +53,7 @@ class PopupWindow extends React.Component {
               )}
 
               <div className={this.props.state.spinnerClassname}>
-                {!this.props.popupFile.is_image ? undefined : <Spinner />}
+                {!this.props.popupFile.fields.is_image ? undefined : <Spinner />}
               </div>
             </div>
           ) : (
@@ -114,11 +114,11 @@ class PopupWindow extends React.Component {
 
         {!this.props.popupFile.fields.is_video ? (
           <div className="popup-window__image__wrapper">
-            {!this.props.popupFile.is_image ? (
+            {!this.props.popupFile.fields.is_image ? (
               <h3 className="popup-window__subtitle">No Preview Available</h3>
             ) : undefined}
 
-            {!this.props.popupFile.is_image ? (
+            {!this.props.popupFile.fields.is_image ? (
               <img
                 className={this.props.state.imageClassname}
                 src={this.props.state.image}
@@ -133,7 +133,7 @@ class PopupWindow extends React.Component {
             )}
 
             <div className={this.props.state.spinnerClassname}>
-              {!this.props.popupFile.is_image ? undefined : <Spinner />}
+              {!this.props.popupFile.fields.is_image ? undefined : <Spinner />}
             </div>
           </div>
         ) : (
