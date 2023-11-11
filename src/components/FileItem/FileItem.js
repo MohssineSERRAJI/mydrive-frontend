@@ -175,7 +175,6 @@ const FileItem = (props) => {
           />
         </div>
         <div class="access__image noSelect">
-          {console.log(props.state.imageSrc)}
           <img
             class={props.state.imageClassname}
             src={props.state.imageSrc}
