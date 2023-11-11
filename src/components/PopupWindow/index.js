@@ -164,25 +164,20 @@ class PopupWindowContainer extends React.Component {
 
     if (
       this.props.popupFile.fields.is_image &&
-      !this.props.popupFile.is_video
-    ) {
-      this.getThumbnail();
-    } else if (
-      this.props.popupFile.fields.fields.is_image &&
-      !this.props.popupFile.is_video
-    ) {
+      !this.props.popupFile.fields.is_video
+      ) {
       this.getThumbnail();
     } else if (
       this.props.popupFile.fields.is_image &&
-      !this.props.popupFile.is_video
-    ) {
-      this.setState(() => ({
-        ...this.state,
-        imageClassname: "popup-window__image",
-        spinnerClassname: "popup-window__spinner__wrapper popup-window--gone",
-        image: CloudSvg,
-      }));
-    } else if (this.props.popupFile.is_video) {
+      !this.props.popupFile.fields.is_video
+      ) {
+        this.setState(() => ({
+          ...this.state,
+          imageClassname: "popup-window__image",
+          spinnerClassname: "popup-window__spinner__wrapper popup-window--gone",
+          image: CloudSvg,
+        }));
+      } else if (this.props.popupFile.fields.is_video) {
       this.getVideo();
     }
   };

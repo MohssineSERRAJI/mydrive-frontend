@@ -15,7 +15,7 @@ class PopupWindow extends React.Component {
     return (
       <div
         className={
-          this.props.popupFile.is_video
+          this.props.popupFile.fields.is_video
             ? "popup-window popup-window-video"
             : "popup-window"
         }
@@ -27,12 +27,12 @@ class PopupWindow extends React.Component {
 
         <div
           className={
-            this.props.popupFile.is_video
+            this.props.popupFile.fields.is_video
               ? "popup-window-wrapper popup-window-wrapper-video"
               : "popup-window-wrapper"
           }
         >
-          {!this.props.popupFile.is_video ? (
+          {!this.props.popupFile.fields.is_video ? (
             <div className="popup-window__image__wrapper">
               {!this.props.popupFile.fields.is_image ? (
                 <h3 className="popup-window__subtitle">No Preview Available</h3>
@@ -80,7 +80,7 @@ class PopupWindow extends React.Component {
               <div className="popup-window-button-wrapper">
                 <button
                   className={
-                    this.props.popupFile.is_video
+                    this.props.popupFile.fields.is_video
                       ? "button popup-window__button popup-window__button-video"
                       : "button popup-window__button"
                   }
@@ -112,7 +112,7 @@ class PopupWindow extends React.Component {
           {capitalize(this.props.popupFile.filename)}
         </h3>
 
-        {!this.props.popupFile.is_video ? (
+        {!this.props.popupFile.fields.is_video ? (
           <div className="popup-window__image__wrapper">
             {!this.props.popupFile.is_image ? (
               <h3 className="popup-window__subtitle">No Preview Available</h3>
