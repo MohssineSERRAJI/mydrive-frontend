@@ -3,7 +3,7 @@ import Spacer from "../../assets/spacer.svg";
 
 const ParentBar = (props) => (
   <div class="path__files">
-    <a onClick={props.homeClick}>myDrive</a>
+    <a onClick={props.homeClick}>Amazon S3</a>
     <span class="spacer__path">
       <img src={Spacer} alt="spacer" />;
     </span>
